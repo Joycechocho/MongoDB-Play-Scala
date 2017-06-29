@@ -1,57 +1,58 @@
-[<img src="https://img.shields.io/travis/playframework/play-scala-starter-example.svg"/>](https://travis-ci.org/playframework/play-scala-starter-example)
+# Description
+We will provide a simple Web interface to show what collections in the database, and the fields of each collection, and other meta data, such as time periods, etc.
+
+AC: 
+1) backend web (rest) service for the meta data about collections for a given mongoDB database
+
+2) front end, web UI, to display the meta data
+
+3) unit and integration tests created and passed
+
 
 # Play Scala Starter
 
-This is a starter application that shows how Play works.  Please see the documentation at https://www.playframework.com/documentation/latest/Home for more details.
+First, I used the Play Scala Starter example to start. We will remove some unused files later. 
+
+# Environment
+
+Play 2.5 as a web framework
+
+ReactiveMongo 0.11.14 (a non-blocking and asynchronous Scala driver for MongoDB)
+
+Add below commands into build.sbt
+```
+// only for Play 2.5.x
+libraryDependencies ++= Seq(
+  "org.reactivemongo" %% "play2-reactivemongo" % "0.11.14"
+)
+```
+
+MongoDB (currently I have one dummy database named db1 and two dummy collections named students and terms)
+
 
 ## Running
 
-Run this using [sbt](http://www.scala-sbt.org/).  If you downloaded this project from http://www.playframework.com/download then you'll find a prepackaged version of sbt in the project directory:
-
+Remember to add "Run Configuration" as SBT RUN if you are using intelliJ
 ```
 sbt run
 ```
 
 And then go to http://localhost:9000 to see the running web application.
 
-There are several demonstration files available in this template.
 
-## Controllers
+## Progress 
 
-- HomeController.scala:
+Currently, we have rest APIs to show collections, show documents, show metadata... We will move onto the simple UI for displaying and keep adding more rest APIs. 
 
-  Shows how to handle simple HTTP requests.
 
-- AsyncController.scala:
+## rest APIs 
+```
+# An example controller showing a sample home page
+GET     /dataservice                        controllers.HomeController.index
 
-  Shows how to do asynchronous programming when handling a request.
-
-- CountController.scala:
-
-  Shows how to inject a component into a controller and use the component when
-  handling requests.
-
-## Components
-
-- Module.scala:
-
-  Shows how to use Guice to bind all the components needed by your application.
-
-- Counter.scala:
-
-  An example of a component that contains state, in this case a simple counter.
-
-- ApplicationTimer.scala:
-
-  An example of a component that starts when the application starts and stops
-  when the application stops.
-
-## Filters
-
-- Filters.scala:
-
-  Creates the list of HTTP filters used by your application.
-
-- ExampleFilter.scala
-
-  A simple filter that adds a header to every response.
+#Other APIs
+GET     /dataservice/collection                controllers.HomeController.getCollections
+GET     /dataservice/collection/:col                controllers.HomeController.getDocuments(col:String)
+GET     /dataservice/collection/metadata/:col      controllers.HomeController.getMetadata(col:String)
+```
+Name of rest APIs can be modified later.  

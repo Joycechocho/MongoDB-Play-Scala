@@ -1,32 +1,28 @@
-@(message: String, style: String = "scala")
-
-@message
+@(message: List[String], style: String = "scala" )
 
 
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>listImportCollections</title>
-    <script src="@routes.Assets.versioned("javascripts/app.js")" type="text/javascript"></script>
+    <title>Show Collections</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+      <script src="@routes.Assets.versioned("javascripts/hello.js")" type="text/javascript"></script>
   </head>
 
   <body>
 
-    <p id="demo"></p>
+      <h1>Here shows what collections we have in database</h1>
+      <ul>
+          @message.map {message =>
+              <form action="collection/@message">
+                  <input type="submit" value=@message />
+              </form>
+          }
+      </ul>
 
-    <script>
-            //'[ [ "getCurrentTerms", "post", "post_1", "students" ] ]'
-            function htmlDecode(value) {
-              return $("<textarea/>").html(value).text();
-            }
 
-            var obj = JSON.parse(htmlDecode("@message"));
-            document.getElementById("demo").innerHTML = obj[0][0]+" "+obj[0][1];
-    </script>
-
-    <a href="@routes.HomeController.col1()">Click to see documents in Collection: students</a>
+      <a href="@routes.HomeController.index">Home Page</a>
 
   </body>
 
