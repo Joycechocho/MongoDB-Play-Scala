@@ -11,9 +11,15 @@ libraryDependencies += cache
 libraryDependencies += ws
 libraryDependencies += "org.scalatestplus.play" %% "scalatestplus-play" % "2.0.0" % Test
 
-// only for Play 2.5.x
+//swagger for rest api documentation
 libraryDependencies ++= Seq(
-  "org.reactivemongo" %% "play2-reactivemongo" % "0.11.14"
+  "io.swagger" %% "swagger-play2" % "1.5.3", "org.webjars" %% "webjars-play" % "2.5.0-4",
+  "org.webjars" % "swagger-ui" % "2.2.0"
 )
 
-//scala logging for debug
+//Json Library from play framework
+libraryDependencies += "com.typesafe.play" %% "play-json" % "2.3.0"
+
+//casbah
+libraryDependencies += "org.mongodb" %% "casbah" % "3.1.1"
+

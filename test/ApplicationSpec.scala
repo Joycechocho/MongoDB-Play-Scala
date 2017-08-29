@@ -29,6 +29,7 @@ class ApplicationSpec extends PlaySpec with OneAppPerTest {
 
   }
 
+  /*
   "CountController" should {
 
     "return an increasing count" in {
@@ -38,5 +39,6 @@ class ApplicationSpec extends PlaySpec with OneAppPerTest {
     }
 
   }
+  */
 
 }
