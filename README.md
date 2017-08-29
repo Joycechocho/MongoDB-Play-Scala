@@ -8,7 +8,7 @@ UI display
 
 Rest API documentation: Swagger UI
 
-Authentication: Basic Auth with username: user and password: pass
+Authentication: Basic Auth
 
 
 # Environment
@@ -28,32 +28,32 @@ API Documentation -> Swagger UI
 
 # Code Structure
 
-####app/controllers/HomeController.scala
+#### app/controllers/HomeController.scala
  Here we define all the rest APIs here. These includes:
  *    "showdbs" which is the same with mongo command "show dbs"
  *    "getCollections" which is the same with mongo command "show collections"
  *    "getDocuments" which is the same with mongo command "db.collection.find()"
  *    "getMetadata" which is the same with mongo command "collection.stats"
 
-####app/controllers/BasicAuthAction.scala
+#### app/controllers/BasicAuthAction.scala
 Here we check if the username and password matches as setting
 
-####conf/routes
+#### conf/routes
 This file defines all application routes 
 
-####conf/application.conf
+#### conf/application.conf
 This is the main configuration file for the application, includes the mongodb and username/password setting
 
-####public/html/index.html
+#### public/html/index.html
 This is the front end page to dispaly what data we have from the hub. 
 
-####public/javascript/index.js
+#### public/javascript/index.js
 Here we make the rest API calls to retrieve and parse data from the hub. 
 
 
 
 # Running
-
+Turn on your MongoDB Connection 
 Remember to add "Run Configuration" as SBT RUN if you are using intelliJ
 ```
 sbt run
