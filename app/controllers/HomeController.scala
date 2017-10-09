@@ -120,7 +120,7 @@ class HomeController @Inject() (configuration: play.api.Configuration) extends C
     }
   }
 
-
+/*
   val studentForm = Form(
     mapping(
       "name" -> text,
@@ -197,3 +197,4 @@ class HomeController @Inject() (configuration: play.api.Configuration) extends C
     }
   }
 }
+*/
