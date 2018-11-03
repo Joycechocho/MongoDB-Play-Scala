@@ -1,8 +1,8 @@
 # Description
-We will provide a simple Web interface to show what collections in the database, and the fields of each collection, and other meta data, such as time periods, etc.
+Developed in Scala, from the frone end to the backend, a web service that fetches data from MongoDB and has a simple interface for data displaying.
 
 # Features
-Data access rest API
+Data access REST API
 
 UI display
 
@@ -29,26 +29,25 @@ API Documentation -> Swagger UI
 # Code Structure
 
 #### app/controllers/HomeController.scala
- Here we define all the rest APIs here. These includes:
  *    "showdbs" which is the same with mongo command "show dbs"
  *    "getCollections" which is the same with mongo command "show collections"
  *    "getDocuments" which is the same with mongo command "db.collection.find()"
  *    "getMetadata" which is the same with mongo command "collection.stats"
 
 #### app/controllers/BasicAuthAction.scala
-Here we check if the username and password matches as setting
+Check if the username and password matches as setting
 
 #### conf/routes
-This file defines all application routes 
+Defines all application routes 
 
 #### conf/application.conf
-This is the main configuration file for the application, includes the mongodb and username/password setting
+Main configuration file for the application
 
 #### public/html/index.html
-This is the front end page to dispaly what data we have from the hub. 
+Front end page dispalys what data we have from the hub. 
 
 #### public/javascript/index.js
-Here we make the rest API calls to retrieve and parse data from the hub. 
+Make rest API calls to retrieve and parse data from the hub. 
 
 
 
