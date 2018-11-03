@@ -1,5 +1,5 @@
 # Description
-Developed in Scala, from the front-end to the back-end, a web service that fetches data from MongoDB and has a simple interface for data displaying.
+From the front-end to the back-end (develped in Scala), a web service that fetches data from MongoDB and has a simple interface for data displaying.
 
 # Features
 Data access REST API
